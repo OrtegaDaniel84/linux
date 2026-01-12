@@ -1,0 +1,50 @@
+configuration {
+	display-drun: "Applications";
+	display-window: "Windows";
+	drun-display-format: "{icon} {name}";
+	modi: "window,run,drun";
+	show-icons: true;
+	icon-theme: "Papirus";
+}
+* {
+	background: #282A2E;
+	background-alt: #373B41;
+	foreground: #C5C8C6;
+	primary: #F0C674;
+	secondary: #8ABEB7;
+	alert: #A54242;
+	disabled: #707880;
+}
+
+window {
+	location: center;
+	anchor:   center;
+	transparency: "screenshot";
+	width: 35%;
+	padding: 10px;
+	border:  0px;
+	border-radius: 10px;
+	background-color: @background;
+	spacing: 0;
+	children:  [mainbox];
+	orientation: horizontal;
+	color: @foreground;
+}
+mainbox {
+	children: [ inputbar, message, listview ];
+}
+prompt {
+	color: @primary;
+}
+element {
+	background-color: @background;
+}
+element alternate normal {
+	background-color: @background;
+}
+element normal active{
+	background-color: @background-alt;
+}
+element alternate active{
+	background-color: @background-alt;
+}

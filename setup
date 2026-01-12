@@ -1,0 +1,88 @@
+# Install packages
+apt install -y --no-install-recommends \
+  sudo xorg openbox obconf polybar rofi alacritty \
+  x11vnc novnc websockify \
+  fonts-dejavu-core curl xvfb python3-xdg \
+  network-manager-gnome vim feh
+
+# Add user daniel to sudoers with NOPASSWD
+echo "daniel  ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+su daniel
+
+mkdir -p ~/.config/openbox
+mkdir -p ~/.config/polybar
+mkdir -p ~/.config/rofi
+mkdir -p /home/daniel/Pictures
+
+wget -O ~/.config/rofi/config.rasi 
+wget -O .config/openbox/autostart https://github.com/OrtegaDaniel84/src/blob/683054a3a2dc9b4919e6297680c73ce2947a7b5a/Linux/Debian/.config/openbox/autostart
+wget -O .config/openbox/rc.xml https://github.com/OrtegaDaniel84/src/blob/683054a3a2dc9b4919e6297680c73ce2947a7b5a/Linux/Debian/.config/openbox/rc.xml
+wget -O .config/polybar/config https://github.com/OrtegaDaniel84/src/blob/683054a3a2dc9b4919e6297680c73ce2947a7b5a/Linux/Debian/.config/polybar/config
+wget -O .config/polybar/polywins.sh https://github.com/OrtegaDaniel84/src/blob/683054a3a2dc9b4919e6297680c73ce2947a7b5a/Linux/Debian/.config/polybar/polywins.sh
+wget -O .config/rofi/config.rasi https://github.com/OrtegaDaniel84/src/blob/683054a3a2dc9b4919e6297680c73ce2947a7b5a/Linux/Debian/.config/rofi/config.rasi
+wget -O /home/daniel/Pictures/bg.jpg https://raw.githubusercontent.com/OrtegaDaniel84/src/67a71924c344b08db4707092531c71014aa423d1/Linux/Debian/bg.jpg
+
+# apt install -y --no-install-recommends bus-x11 \
+# xterm at-spi2-core gnome-terminal lxappearance
+
+#######################################
+vi /etc/sudoers >> daniel  ALL=(ALL) NOPASSWD: ALL
+#######################################
+
+mkdir -p /home/daniel/.config/openbox
+mkdir -p /home/daniel/.config/polybar
+
+#######################################
+# .config/openbox/rc.xml
+#######################################
+<keybind key="C-space">
+  <action name="Execute">
+    <command>rofi -show drun</command>
+  </action>
+</keybind>
+#######################################
+
+#######################################
+scp openbox/autostart root@192.168.1.176:/home/daniel/.config/openbox/autostart
+scp polybar/config root@192.168.1.176:/home/daniel/.config/polybar/config
+scp polybar/polywins.sh root@192.168.1.176:/home/daniel/.config/polybar/polywins.sh
+scp openbox-novnc.service root@192.168.1.176:/etc/systemd/system/openbox-novnc.service
+scp 50-networkmanager.rules root@192.168.1.176:/etc/polkit-1/rules.d/50-networkmanager.rules 
+
+chmod +x /home/daniel/.config/openbox/autostart 
+chmod +x /home/daniel/.config/polybar/polywins.sh
+#######################################
+
+#######################################
+Change on /etc/NetworkManager/NetworkManager.conf 
+[ifupdown]
+managed=true 
+#######################################
+
+#######################################
+Change on /etc/network/interfaces 
+auto lo
+iface lo inet loopback 
+#######################################
+
+sudo usermod -aG netdev daniel
+
+sudo cp /usr/share/novnc/vnc_lite.html /usr/share/novnc/index.html
+
+sudo systemctl daemon-reload
+sudo systemctl enable --now NetworkManager
+sudo systemctl enable --now openbox-novnc.service
+
+sudo systemctl restart polkit
+sudo systemctl restart NetworkManager
+sudo systemctl restart openbox-novnc.service
+
+# Change default terminal to gnome-terminal
+sudo update-alternatives --config x-terminal-emulator
+
+# Install Google Chrome
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo tee /etc/apt/trusted.gpg.d/google.asc >/dev/null
+vi /etc/apt/sources.list << deb http://dl.google.com/linux/chrome/deb/ stable main
+sudo apt install google-chrome-stable
+
