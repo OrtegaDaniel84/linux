@@ -16,7 +16,7 @@ cp -r configs/.config/* .config/
 chmod +x .config/openbox/autostart 
 chmod +x .config/polybar/polywins.sh
 
-mkdir -p /home/daniel/Pictures
+mkdir -p /home/$USER/Pictures
 cp configs/bg.jpg Pictures/
 
 sudo cp configs/novnc/index.html /usr/share/novnc/index.html
@@ -27,7 +27,7 @@ sudo cp configs/50-networkmanager.rules /etc/polkit-1/rules.d/50-networkmanager.
 
 sudo sed -i 's/managed=false/managed=true/' /etc/NetworkManager/NetworkManager.conf
 
-sudo usermod -aG netdev daniel
+sudo usermod -aG netdev $USER
 
 sudo systemctl daemon-reload
 sudo systemctl enable lightdm
