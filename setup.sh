@@ -1,17 +1,21 @@
 #Install prerequisites
-# apt install sudo git
-# echo "daniel  ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+# sudo apt update && apt upgrade -y
+# sudo apt install sudo git
+# sudo echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
+# cd ~
 # git clone https://github.com/OrtegaDaniel84/linux.git configs
 # sh /configs/setup.sh
 
 # Install packages
+
 sudo apt install -y --no-install-recommends \
   xorg openbox obconf polybar rofi alacritty \
   x11vnc novnc websockify \
   fonts-dejavu-core curl xvfb python3-xdg \
-  network-manager-gnome vim feh wmctrl \
+  network-manager-gnome vim feh wmctrl dbus-x11 lxpolkit \
   lightdm lightdm-gtk-greeter
 
+mkdir -p .config/
 cp -r configs/.config/* .config/
 chmod +x .config/openbox/autostart 
 chmod +x .config/polybar/polywins.sh
@@ -37,8 +41,13 @@ sudo systemctl enable openbox-novnc.service
 #reboot reboot
 
 
-# Install Google Chrome
-# wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo tee /etc/apt/trusted.gpg.d/google.asc >/dev/null
-# vi /etc/apt/sources.list << deb http://dl.google.com/linux/chrome/deb/ stable main
-# sudo apt install google-chrome-stable
+# Install Google 
+sudo mkdir -p /etc/apt/keyrings
+curl -fSsL https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor | sudo tee /usr/share/keyrings/google-chrome.gpg > /dev/null
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+curl -fsSL https://us-central1-apt.pkg.dev/doc/repo-signing-key.gpg | sudo gpg --dearmor --yes -o /etc/apt/keyrings/antigravity-repo-key.gpg
+echo "deb [signed-by=/etc/apt/keyrings/antigravity-repo-key.gpg] https://us-central1-apt.pkg.dev/projects/antigravity-auto-updater-dev/ antigravity-debian main" | sudo tee /etc/apt/sources.list.d/antigravity.list > /dev/null
+
+sudo apt update
+sudo apt install -y google-chrome-stable antigravity
 

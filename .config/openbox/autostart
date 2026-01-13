@@ -1,6 +1,5 @@
-# Inicia Polybar automáticamente
 
 feh --bg-scale /home/daniel/Pictures/bg.jpg &
-nm-applet &
+#nm-applet &
 polybar main &
 feh --bg-scale /home/daniel/Pictures/bg.jpg &

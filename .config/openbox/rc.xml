@@ -153,10 +153,10 @@
      Many programs reserve space automatically, but you can use this in other
      cases. -->
   <margins>
-    <top>0</top>
-    <bottom>0</bottom>
-    <left>0</left>
-    <right>0</right>
+    <top>40</top>
+    <bottom>5</bottom>
+    <left>5</left>
+    <right>5</right>
   </margins>
   <dock>
     <position>TopLeft</position>
@@ -181,6 +181,39 @@
     <keybind key="C-space">
       <action name="Execute">
         <command>rofi -show drun</command>
+      </action>
+    </keybind>
+    <keybind key="C-Left">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+      </action>
+    </keybind>
+
+    <keybind key="C-Right">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>-0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+      </action>
+    </keybind>
+
+    <keybind key="C-Up">
+      <action name="Maximize"/>
+    </keybind>
+
+    <keybind key="C-Down">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>center</x>
+        <y>center</y>
+        <width>800</width>
+        <height>600</height>
       </action>
     </keybind>
     <!-- Keybindings for desktop switching -->

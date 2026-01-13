@@ -26,10 +26,11 @@ alert = #A54242
 disabled = #707880
 
 [bar/main]
-width = 100%
+width = 99.6%
 height = 24pt
 radius = 6
-
+offset-x= .2%
+offset-y = 3
 ; dpi = 96
 
 background = ${colors.background}
