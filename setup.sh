@@ -1,16 +1,16 @@
 #Install prerequisites
+# Run as root user
+# su -
 # apt update && apt upgrade -y
 # apt install sudo git
-# echo "<normal user> ALL=(ALL) NOPASSWD: ALL" | tee -a /etc/sudoers
+# echo "<usuario> ALL=(ALL) NOPASSWD: ALL" | tee /etc/sudoers.d/<usuario>
+# exit
 
-# go to your normal user !!!!
-
-# cd ~
+# login with <usuario>
 # git clone https://github.com/OrtegaDaniel84/linux.git configs
 # sh /configs/setup.sh
  
 # Install packages
-
 sudo apt install -y --no-install-recommends \
   xorg openbox obconf polybar librsvg2-common \
   rofi alacritty x11vnc novnc websockify \
