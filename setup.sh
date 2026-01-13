@@ -8,7 +8,7 @@
 
 # login with <usuario>
 # git clone https://github.com/OrtegaDaniel84/linux.git configs
-# sh /configs/setup.sh
+# sh configs/setup.sh
  
 # Install packages
 sudo apt install -y --no-install-recommends \
@@ -42,18 +42,7 @@ sudo systemctl enable lightdm
 sudo systemctl enable NetworkManager
 sudo systemctl enable openbox-novnc.service
 
+sh install_apps.sh
 #reboot reboot
 
-
-# Install Google 
-#sudo apt install gpg
-#sudo mkdir -p /usr/share/keyrings
-#curl -fSsL https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor | sudo tee /usr/share/keyrings/google-chrome.gpg > /dev/null
-#curl -fsSL https://us-central1-apt.pkg.dev/doc/repo-signing-key.gpg | sudo gpg --dearmor --yes -o /usr/share/keyrings/antigravity-repo-key.gpg > /dev/null
-
-#echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list > /dev/null
-#echo "deb [signed-by=/usr/share/keyrings/antigravity-repo-key.gpg] https://us-central1-apt.pkg.dev/projects/antigravity-auto-updater-dev/ antigravity-debian main" | sudo tee /etc/apt/sources.list.d/antigravity.list > /dev/null
-#
-#sudo apt update
-#sudo apt install -y google-chrome-stable antigravity
 
