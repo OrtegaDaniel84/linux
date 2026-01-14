@@ -35,10 +35,9 @@ echo "<username> ALL=(ALL) NOPASSWD: ALL" | tee /etc/sudoers.d/<username>
 exit
 
 # Clone and install
-git clone [https://github.com/OrtegaDaniel84/linux.git](https://github.com/OrtegaDaniel84/linux.git) configs
-cd configs
-chmod +x setup.sh install_apps.sh
-sh setup.sh
+git clone https://github.com/OrtegaDaniel84/linux.git configs
+chmod +x configs/*.sh
+sh configs/setup.sh
 ```
 
 ## Accessing the Server
