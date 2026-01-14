@@ -1,5 +1,5 @@
 
-feh --bg-scale /home/daniel/Pictures/bg.jpg &
+feh --bg-scale $HOME/Pictures/bg.jpg &
 #nm-applet &
 polybar main &
-feh --bg-scale /home/daniel/Pictures/bg.jpg &
+feh --bg-scale $HOME/Pictures/bg.jpg &

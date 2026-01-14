@@ -13,7 +13,7 @@
 # Install packages
 sudo apt install -y --no-install-recommends \
   xorg openbox obconf polybar librsvg2-common \
-  rofi alacritty x11vnc novnc websockify \
+  rofi papirus-icon-theme alacritty x11vnc novnc websockify \
   fonts-dejavu-core curl xvfb python3-xdg \
   network-manager-gnome vim feh wmctrl dbus-x11 \
   lightdm lightdm-gtk-greeter 
