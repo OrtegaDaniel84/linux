@@ -39,11 +39,18 @@ chmod +x setup.sh install_apps.sh
 sh setup.sh
 ```
 
-## Access
-You can connect to your server now using the browser:
-* Desctop: http://**IP**:3000
- * Ctrl + Space     → Lanzador Rofi (apps)
- * Ctrl + ↑ (Up)    → Maximiza ventana
- * Ctrl + ↓ (Down)  → Restaura/centra ventana
+## Accessing the Server
+You can access your desktop and services through any web browser:
 
-- CasaOS : http://**IP**:8080
+### Desktop Environment
+URL: http://**<YOUR_IP>**:3000
+
+#### Shortcuts:
+- Ctrl + Space: Open Rofi (App Launcher).
+- Ctrl + ↑ (Up): Maximize window.
+- Ctrl + ↓ (Down): Restore or center window.
+- Ctrl + ← (Left): Snap window to the left.
+- Ctrl + → (Right): Snap window to the right.
+
+### Management Dashboard
+CasaOS: http://**<YOUR_IP>**:8080
