@@ -33,6 +33,6 @@ sudo systemctl enable NetworkManager
 sudo systemctl enable openbox-novnc.service
 
 sh install_apps.sh
-reboot reboot
+sudo reboot
 
 

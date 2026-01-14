@@ -1,0 +1,19 @@
+
+## 🌐 Network Interface Naming (Optional)
+
+By default, Debian uses "Predictable Interface Names" (like `enp2s0`). If you prefer the classic naming convention (`eth0`, `wlan0`):
+
+1. **Edit GRUB:**
+   vi /etc/default/grub`
+   Add "net.ifnames=0 biosdevname=0" to GRUB_CMDLINE_LINUX_DEFAULT.
+      GRUB_CMDLINE_LINUX_DEFAULT="quiet net.ifnames=0 biosdevname=0"
+
+2. Update & Apply:
+   update-grub
+
+3. Update Networking
+   vi /etc/network/interfaces
+   replace enp1s0 with eth0
+   with vi = :%s/enp1s0/eth0/g
+
+4- Reboot
