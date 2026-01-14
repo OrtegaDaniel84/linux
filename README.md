@@ -13,6 +13,8 @@ This project provides a script to transform a minimal Debian installation into a
 | **Network Manager** | Handles Wi-Fi and Ethernet connections easily. |
 | **Docker** | Container engine to run modern applications efficiently. |
 | **CasaOS** | Simple web dashboard to manage Docker containers and files. |
+| **Google Chrome** | Standard web browser for the desktop session. |
+| **Antigravity** | Auto-updater tool for system maintenance. |
 
 ## 🚀 Installation
 
