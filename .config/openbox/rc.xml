@@ -183,7 +183,7 @@
         <command>rofi -show drun</command>
       </action>
     </keybind>
-    <keybind key="C-Left">
+    <keybind key="C-A-Left">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>0</x>
@@ -193,7 +193,7 @@
       </action>
     </keybind>
 
-    <keybind key="C-Right">
+    <keybind key="C-A-Right">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>-0</x>
@@ -203,11 +203,11 @@
       </action>
     </keybind>
 
-    <keybind key="C-Up">
+    <keybind key="C-A-Up">
       <action name="Maximize"/>
     </keybind>
 
-    <keybind key="C-Down">
+    <keybind key="C-A-Down">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>center</x>
