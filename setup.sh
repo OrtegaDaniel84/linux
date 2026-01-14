@@ -32,7 +32,7 @@ sudo systemctl enable lightdm
 sudo systemctl enable NetworkManager
 sudo systemctl enable openbox-novnc.service
 
-sh install_apps.sh
+sh configs/install_apps.sh
 sudo reboot
 
 
