@@ -47,11 +47,11 @@ You can access your desktop and services through any web browser:
 URL: http://**<YOUR_IP>**:3000
 
 #### Shortcuts:
-- Ctrl + Space: Open Rofi (App Launcher).
-- Ctrl + ↑ (Up): Maximize window.
-- Ctrl + ↓ (Down): Restore or center window.
-- Ctrl + ← (Left): Snap window to the left.
-- Ctrl + → (Right): Snap window to the right.
+- Ctrl + Alt + Space: Open Rofi (App Launcher).
+- Ctrl + Alt + ↑ (Up): Maximize window.
+- Ctrl + Alt + ↓ (Down): Restore or center window.
+- Ctrl + Alt + ← (Left): Snap window to the left.
+- Ctrl + Alt + → (Right): Snap window to the right.
 
 ### Management Dashboard
 CasaOS: http://**<YOUR_IP>**:8080
