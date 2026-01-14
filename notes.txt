@@ -17,3 +17,18 @@ By default, Debian uses "Predictable Interface Names" (like `enp2s0`). If you pr
    with vi = :%s/enp1s0/eth0/g
 
 4- Reboot
+
+
+## External disc
+
+Using and external disc with the Zimablade to get more space and set docker path to this disc
+
+1. Mount the disc with CasaOS
+   Check the name and where mount, I use disc and the path is /mnt/disc
+
+2. Change the Docker configuration
+   sudo systemctl stop docker docker.socket
+   sudo mv /var/lib/docker /mnt/disc/
+   echo '{ "data-root": "/mnt/disc/docker" }' | sudo tee /etc/docker/daemon.json > /dev/null
+   sudo systemctl daemon-reload && sudo systemctl start docker
+   docker info | grep Root
