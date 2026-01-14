@@ -55,3 +55,9 @@ URL: http://**<YOUR_IP>**:3000
 
 ### Management Dashboard
 CasaOS: http://**<YOUR_IP>**:8080
+  
+## Screenshots
+![Alt text](screenshots/Desktop.jpg "Home")
+![Alt text](screenshots/Rofi.jpg "Rofi")
+![Alt text](screenshots/Apps.jpg "Apps")
+![Alt text](screenshots/CasaOS.jpg "CasaOS")
